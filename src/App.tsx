@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import ConversionTemp from './components/ConversionTemp';
+import OutputField from './components/OutputField';
+import SimpleCounter from './components/SimpleCounter'
+import StopWatch from './components/StopWatch';
+import TodoList from './components/TodoList';
+import './styles/style.sass'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+return (
+  <div >
+    {/* <SimpleCounter/> */}
+    {/* <StopWatch/> */}
+    {/* <TodoList/> */}
+    {/* <OutputField/> */}
+    <ConversionTemp />
+  </div>
+);
 }
 
+
 export default App;
+
