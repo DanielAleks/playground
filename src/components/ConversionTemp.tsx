@@ -1,33 +1,18 @@
 import React, { useState } from 'react'
 
 function ConversionTemp() {
-  const [temp, setTemp] = useState<any>()
-
-  const scaleNames = {
-    farenheit: 'F°',
-    celsius: 'C°'
-  }
-
-  const convertToFarenheit = (event) => {
-    //should be event, we are tracking what's typed within input... cant be value, shows for both... cant be scaleNames, string objects unless if there is an && operator or just objects within two arrays, but we dont need an array. HMMMMMM.... 
-    return ((event * 9 / 5) + 32)
-  }
-
-  const convertToCelsius = (event) => {
-    return ((event - 32) * 5 / 9)
-  }
+  const [controllableInputField, setControlledInputField] = useState<any>('')
+  const [isFarenheit, setIsFarenheit] = useState(false)
+  const [calculated, setCalculated] = useState<any>()
 
 
-  const onClickHandler = () => {
-    setTemp('')
-  }
+  const convert = () => {
+    let farenheitCalculated = controllableInputField * 9 / 5 + 32
+    let celsiusCalculated = controllableInputField - 32 * 5 / 9
+    if (isFarenheit) {
+      setCalculated(farenheitCalculated)
 
-  const onChangeHandler = (event) => {
-    setTemp(event.target.value)
-
-    if (event) {
-      convertToCelsius(scaleNames.farenheit)
-    } else convertToFarenheit(scaleNames.celsius)
+    } else setCalculated(celsiusCalculated)
 
   }
 
@@ -36,29 +21,19 @@ function ConversionTemp() {
     <div>
       <h1>Convert Your Temperature</h1>
       <div>
-        <input onChange={onChangeHandler}
+        <input onChange={(event) => setControlledInputField(event.target.value)}
           type="text"
-          value={temp}
+          value={controllableInputField}
           placeholder='farenheit' />
+        <button onClick={() => setIsFarenheit((prev) => !prev)}>
+          {isFarenheit ? 'F°' : 'C°'}
+        </button>
         <button
-          onClick={onClickHandler}>
+          onClick={convert}>
           Convert
         </button>
+        {calculated}
       </div>
-
-      <div>
-        <input 
-        onChange={onChangeHandler}
-          type="text"
-          value={temp}
-          placeholder='celsius' />
-        <button
-          onClick={onClickHandler}>
-          Convert
-          </button>
-      </div>
-
-
     </div>
   )
 }
