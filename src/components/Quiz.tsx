@@ -1,5 +1,4 @@
-import { access } from 'fs'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 function Quiz() {
   const [accessor, setAccessor] = useState<number>(0)
@@ -25,7 +24,7 @@ function Quiz() {
 
 
   return (
-    <div>
+    <div style={{color: 'white'}}>
       {arrOfQuestions[accessor].question}
       <div>
         <input type="text" onChange={onChangeHandler} />

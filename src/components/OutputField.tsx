@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { FiCheckCircle } from 'react-icons/fi'
-import { MdDeleteForever, MdKeyboardCapslock, MdRadioButtonUnchecked } from 'react-icons/md'
+import { MdDeleteForever, MdRadioButtonUnchecked } from 'react-icons/md'
 
 function OutputField() {
   const [value, setValue] = useState('')
@@ -11,7 +11,6 @@ function OutputField() {
   const [todos, setTodos] = useState<todoObjT[]>([])
 
   const handleChange = (event) => {
-    console.log(value)
     setValue(event.target.value)
 
   }
@@ -25,14 +24,13 @@ function OutputField() {
   const handleCheck = (todoObj) => {
     setTodos((prev) => prev.map((item) => {
       if (todoObj === item) {
-        return {...item, checked: !item.checked} 
+        return { ...item, checked: !item.checked }
       } else return item
-    
+
     }))
+  }
 
-    }
-
-  const handleDelete = todoObj => { 
+  const handleDelete = todoObj => {
     setTodos(prev => prev.filter((todoObj2) =>
       todoObj === todoObj2 ? null : todoObj2
 
@@ -47,10 +45,10 @@ function OutputField() {
         {todos.map((todoObj, index) =>
           <div className='tasklist'>
 
-            <button onClick={() => handleCheck(todoObj)} > 
-              {todoObj.checked ? < FiCheckCircle/> : <MdRadioButtonUnchecked />}
+            <button onClick={() => handleCheck(todoObj)} >
+              {todoObj.checked ? < FiCheckCircle /> : <MdRadioButtonUnchecked />}
             </button>
-            
+
             <li key={index}>
               {todoObj.todo}
             </li>

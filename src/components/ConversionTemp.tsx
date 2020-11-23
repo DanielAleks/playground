@@ -32,7 +32,9 @@ function ConversionTemp() {
           onClick={convert}>
           Convert
         </button>
+        <p>
         {calculated}
+        </p>
       </div>
     </div>
   )
