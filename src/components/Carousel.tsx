@@ -1,47 +1,59 @@
 import React, { useState } from 'react'
 import './carousel.sass'
+import archOcean from '../assets/archOcean.jpg'
+import river from '../assets/river.jpg'
+import lake from '../assets/lake.jpg'
+import roadRiver from '../assets/roadRiver.jpg'
+import { FiCheckCircle } from 'react-icons/fi'
+import { IoIosArrowDropleftCircle } from 'react-icons/io'
+import { IoIosArrowDroprightCircle } from 'react-icons/io'
 
 function Carousel() {
-  const [isImage, setIsImage] = useState<any>('')
+  const photos = [
+    <img src={archOcean} alt="arch rock with ocean" />,
+    <img src={river} alt="river" />,
+    <img src={lake} alt="lake" />,
+    <img src={roadRiver} alt="river with a road" />]
+  const [x, setX] = useState(0)
 
-  const imges = [1, 2, 3, 4, 5]
-  // imges.map((item, index) => {
-  // <li>{item}</li>
-  // console.log(item)
 
 
+  const onRightHandler = () => {
+    x === -100 * (photos.length - 1) ? setX(0) : setX(x - 100)
+    console.log(x)
 
-  const handleLeftClick = (todoObj) => {
-    imges.map((item) => {
-      return (
-        <li>{item}</li>
-      )
-    }
-    )
   }
 
-  const handleRightClick = () => {
-    return <li>clicked</li>
+  const onLeftHandler = () => {
+    x === 0 ? setX(-100 * (photos.length - 1)) : setX(x + 100)
   }
-
-
 
 
   return (
     <div className='container'>
       <h1>Carousel</h1>
       <div className='outerborder'>
-        <div onClick={handleLeftClick} className='leftslide'>
-          <p>Left</p>
-        </div>
-        <div onClick={handleRightClick} className='rightslide'>
-          <p>Right</p>
-        </div>
-        <div>
-          <h1>
-
-            {/* {imges} */}
-          </h1>
+        <div className='parentdiv'>
+          {photos.map((items, index) =>
+            <div key={index} className='photo-styles' style={{ transform: `translateX(${x}%)` }}>
+              {items}
+            </div>
+          )}
+          <div className='leftbutton'>
+            <button className='thebutton' onClick={onLeftHandler}>
+              <i>
+                < IoIosArrowDropleftCircle size={32}/>
+              </i>
+            </button>
+          </div>
+          <div className='rightbutton'>
+            <button className='thebutton' onClick={onRightHandler}>
+              right
+              <i>
+                < IoIosArrowDroprightCircle size={32}/>
+              </i>
+            </button>
+          </div>
         </div>
       </div>
     </div>

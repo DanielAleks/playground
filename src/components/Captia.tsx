@@ -8,6 +8,7 @@ function Captia() {
 
   return (
     <div>
+      <h1>Captia</h1>
       <div id='Daniel'>{controlledInputField}</div>
       <input type="text" value={controlledInputField} onChange={(event) => {
         setControlledInputField(event.target.value)
@@ -16,9 +17,12 @@ function Captia() {
         let random = Math.floor(Math.random() * 5)
         setAccessor(random)
       }}>
-      Randomizer</button>
-      {names[accessor]} 
-      {controlledInputField === names[accessor] ? ' win' : ' your a robot'}
+        Randomizer</button>
+      <p>
+        {names[accessor]}
+        {controlledInputField === names[accessor] ? ' win' : ' your a robot'}
+
+      </p>
     </div>
   )
 }

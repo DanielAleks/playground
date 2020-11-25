@@ -14,6 +14,8 @@ import Home from './components/Home';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import QuoteGenerator from './components/QuoteGenerator';
 import WeightConverter from './components/WeightConverter';
+import KahootQuiz from './components/KahootQuiz';
+import OfficialQuoteGenerator from './components/OfficialQuoteGenerator';
 
 
 
@@ -34,6 +36,9 @@ function App() {
       <button><a href="/carousel">Carousel</a></button>
       <button><a href="/joke-generator">Joke Generator</a></button>
       <button><a href="/weight-converter">Weight Converter</a></button>
+      <button><a href="/kahoot-quiz">Kahoot Quiz</a></button>
+      <button><a href="/quote-generator">Quote Generator</a></button>
+
 
       <Router>
           <Route path='/' exact component={Home}/>
@@ -48,6 +53,8 @@ function App() {
           <Route path='/carousel' component={Carousel} />
           <Route path='/joke-generator' component={QuoteGenerator} />
           <Route path='/weight-converter' component={WeightConverter} />
+          <Route path='/kahoot-quiz' component={KahootQuiz} />
+          <Route path='/quote-generator' component={OfficialQuoteGenerator} />
 
       </Router>
     </div>

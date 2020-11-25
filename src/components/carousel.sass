@@ -1,11 +1,10 @@
 .outerborder
   position: relative
-  border: 2px solid white
   height: 80vh
-  width: 99%
+  width: 100%
+  overflow: hidden
 
-//right & left slide are copies need to make reusable css to shorten by half
-.leftslide
+%button-styles
   position: absolute
   border: 2px solid white
   height: 100%
@@ -13,16 +12,42 @@
   display: flex
   justify-content: center
   align-items: center
+  background: black
+  opacity: 40%
+  border: none
+  outline: none
+  .thebutton
+    height: 100%
+    width: 100%
+    border: none
+    outline: none
+    background: black
+    opacity: 100%
 
-.rightslide
+i
+  color: #ffffff
+
+.leftbutton
+  left: 0
+  @extend %button-styles
+
+.rightbutton
   right: 0
-  position: absolute
-  border: 2px solid white
-  height: 100%
-  width: 200px
+  @extend %button-styles
+
+.parentdiv
   display: flex
-  justify-content: center
-  align-items: center
+
+.photo-styles
+  color: white
+  min-width: 100%
+  height: 80vh
+  transition: 0.5s
+
+img
+  width: 100%
+  height: 100%
+  object-fit: cover
 
 // gotta make the button style from style.sass stop overriding this file.
 
