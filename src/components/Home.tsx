@@ -1,12 +1,19 @@
 import React from 'react'
-
+import '../styles/style.sass'
 
 
 function Home() {
+
+
+
+
   return (
-    <div style={{color: 'white'}}>
-      <h1>Welcome!</h1>
-      <p>Here you'll be able to see what kinds of mini projects I made to become proficient in React js.</p>
+    <div style={{ color: 'white' }}>
+      <h1>Welcome to my React mini Projects</h1>
+      <p>Use the navbar to view them.</p>
+
+
+
     </div>
   )
 }

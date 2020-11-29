@@ -9,36 +9,35 @@ import Quiz from './components/Quiz';
 import SimpleCounter from './components/SimpleCounter'
 import StopWatch from './components/StopWatch';
 import TicTacToe from './components/TicTacToe';
-import './styles/style.sass'
-import Home from './components/Home';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
 import QuoteGenerator from './components/QuoteGenerator';
 import WeightConverter from './components/WeightConverter';
 import KahootQuiz from './components/KahootQuiz';
 import OfficialQuoteGenerator from './components/OfficialQuoteGenerator';
+import Home from './components/Home';
+import './styles/style.sass'
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 
 
 function App() {
 
   return (
-    <div className='buttons' style={{background: 'black'}}>
+    <div className='buttons'>
 
-      <button><a href="/">Home</a></button>
-      <button><a href="/simple-counter">Simple Counter</a></button>
-      <button><a href="/stopwatch">Stopwatch</a></button>
-      <button><a href="/todos">Todos</a></button>
-      <button><a href="/converting-temperatures">Converting Temperatures</a></button>
-      <button><a href="/captia">Captia</a></button>
-      <button><a href="/matching-game">Matching Game</a></button>
-      <button><a href="/tictactoe">TicTacToe</a></button>
-      <button><a href="/quiz">Quiz</a></button>
-      <button><a href="/carousel">Carousel</a></button>
-      <button><a href="/joke-generator">Joke Generator</a></button>
-      <button><a href="/weight-converter">Weight Converter</a></button>
-      <button><a href="/kahoot-quiz">Kahoot Quiz</a></button>
-      <button><a href="/quote-generator">Quote Generator</a></button>
-
+      <button><a href="/"> <h4>Home</h4> </a></button>
+      <button><a href="/simple-counter"><h4>Simple Counter</h4></a></button>
+      <button><a href="/stopwatch"><h4>Stopwatch</h4></a></button>
+      <button><a href="/todos"><h4>Todos</h4></a></button>
+      <button><a href="/converting-temperatures"><h4>Converting Temperatures</h4></a></button>
+      <button><a href="/captia"><h4>Captia</h4></a></button>
+      <button><a href="/matching-game"><h4>Matching Game</h4></a></button>
+      <button><a href="/tictactoe"><h4>TicTacToe</h4></a></button>
+      <button><a href="/quiz"><h4>Quiz</h4></a></button>
+      <button><a href="/carousel"><h4>Carousel</h4></a></button>
+      <button><a href="/joke-generator"><h4>Joke Generator</h4></a></button>
+      <button><a href="/weight-converter"><h4>Weight Converter</h4></a></button>
+      <button><a href="/kahoot-quiz"> <h4>Kahoot Quiz</h4> </a></button>
+      <button><a href="/quote-generator"> <h4>Quote Generator</h4> </a></button>
 
       <Router>
           <Route path='/' exact component={Home}/>

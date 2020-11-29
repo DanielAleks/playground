@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../styles/style.sass'
 
 
 function SimpleCounter() {
@@ -11,9 +12,11 @@ function SimpleCounter() {
   
   
   return (
-    <div >
+    <div className='outerContainer'>
+    <div>
     <p>you clicked {count} times.</p>
     <button onClick={() => setCount(count + 1)}>click here</button>
+    </div>
   </div>
   );
   
