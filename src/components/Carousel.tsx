@@ -4,7 +4,6 @@ import archOcean from '../assets/archOcean.jpg'
 import river from '../assets/river.jpg'
 import lake from '../assets/lake.jpg'
 import roadRiver from '../assets/roadRiver.jpg'
-import { FiCheckCircle } from 'react-icons/fi'
 import { IoIosArrowDropleftCircle } from 'react-icons/io'
 import { IoIosArrowDroprightCircle } from 'react-icons/io'
 

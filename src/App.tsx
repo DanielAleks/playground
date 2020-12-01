@@ -4,7 +4,7 @@ import Captia from './components/Captia';
 import Carousel from './components/Carousel';
 import ConversionTemp from './components/ConversionTemp';
 import MatchingGame from './components/MatchingGame/MatchingGame';
-import OutputField from './components/OutputField';
+import TodoList from './components/TodoList';
 import Quiz from './components/Quiz';
 import SimpleCounter from './components/SimpleCounter'
 import StopWatch from './components/StopWatch';
@@ -12,16 +12,22 @@ import TicTacToe from './components/TicTacToe';
 import QuoteGenerator from './components/QuoteGenerator';
 import WeightConverter from './components/WeightConverter';
 import KahootQuiz from './components/KahootQuiz';
+import ReduxExper from './components/ReduxExper'
 import OfficialQuoteGenerator from './components/OfficialQuoteGenerator';
 import Home from './components/Home';
 import './styles/style.sass'
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
+import { Provider } from 'react-redux'
+import configureStore from './store'
+import TodoList2 from './components/TodoList2';
 
 
 function App() {
+  const store = configureStore()
 
   return (
+    <Provider store={store}>
     <div className='buttons'>
 
       <button><a href="/"> <h4>Home</h4> </a></button>
@@ -38,12 +44,14 @@ function App() {
       <button><a href="/weight-converter"><h4>Weight Converter</h4></a></button>
       <button><a href="/kahoot-quiz"> <h4>Kahoot Quiz</h4> </a></button>
       <button><a href="/quote-generator"> <h4>Quote Generator</h4> </a></button>
+      <button><a href="/redux-example"> <h4>Redux examp</h4> </a></button>
+      <button><a href="/todo2"> <h4>Todo2</h4> </a></button>
 
       <Router>
           <Route path='/' exact component={Home}/>
           <Route path='/simple-counter' component={SimpleCounter} />
           <Route path='/stopwatch' component={StopWatch} />
-          <Route path='/todos' component={OutputField} />
+          <Route path='/todos' component={TodoList} />
           <Route path='/converting-temperatures' component={ConversionTemp} />
           <Route path='/captia' component={Captia} />
           <Route path='/matching-game' component={MatchingGame} />
@@ -54,9 +62,11 @@ function App() {
           <Route path='/weight-converter' component={WeightConverter} />
           <Route path='/kahoot-quiz' component={KahootQuiz} />
           <Route path='/quote-generator' component={OfficialQuoteGenerator} />
-
+          <Route path='/redux-example' component={ReduxExper} />
+          <Route path='/todo2' component={TodoList2} />
       </Router>
     </div>
+    </Provider>
   );
 }
 

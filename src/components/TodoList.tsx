@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { FiCheckCircle } from 'react-icons/fi'
 import { MdDeleteForever, MdRadioButtonUnchecked } from 'react-icons/md'
 
-function OutputField() {
+
+
+function TodoList() {
   const [value, setValue] = useState('')
   interface todoObjT {
     todo: string
@@ -61,8 +63,6 @@ function OutputField() {
     )
   }
 
-
-
   return (
     <div>
       <form action="submit" onSubmit={handleSubmit} onChange={handleChange}>
@@ -76,4 +76,4 @@ function OutputField() {
   )
 }
 
-export default OutputField
+export default TodoList

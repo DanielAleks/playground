@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../styles/style.sass'
+import { useSelector, useDispatch } from 'react-redux'
+import { rootStoreT } from '../store'
+import { DECREMENT, INCREMENT } from '../reducers/types'
 
 
 function SimpleCounter() {
-  const [count, setCount] = useState(0)
+  const isCounted = useSelector((state: rootStoreT) => state.isCounted)
+  const dispatch = useDispatch()
+  
+  const increment = () => dispatch({type: INCREMENT})
+  const decrement = () => dispatch({type: DECREMENT})
 
-  useEffect(() => {
-  document.title = `you clicked ${count} times`;
-    
-  }, [count]);
-  
-  
   return (
-    <div className='outerContainer'>
     <div>
-    <p>you clicked {count} times.</p>
-    <button onClick={() => setCount(count + 1)}>click here</button>
+      <div>
+        <p>you clicked {isCounted} times.</p>
+        <button onClick={increment}>+</button>
+        <button onClick={decrement}>-</button>
+      </div>
     </div>
-  </div>
   );
-  
-  
-  }
+
+
+}
 export default SimpleCounter
 
