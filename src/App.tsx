@@ -9,7 +9,7 @@ import Quiz from './components/Quiz';
 import SimpleCounter from './components/SimpleCounter'
 import StopWatch from './components/StopWatch';
 import TicTacToe from './components/TicTacToe';
-import QuoteGenerator from './components/QuoteGenerator';
+import QuoteGenerator from './components/JokeGenerator';
 import WeightConverter from './components/WeightConverter';
 import KahootQuiz from './components/KahootQuiz';
 import ReduxExper from './components/ReduxExper'
@@ -21,6 +21,10 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import configureStore from './store'
 import TodoList2 from './components/TodoList2';
+import JokeGenerator from './components/JokeGenerator';
+import FreeEx1 from './components/passingDownPipes/FreeEx1';
+import FreeEx2 from './components/FreeEx2';
+import FreeEx3 from './components/FreeEx3';
 
 
 function App() {
@@ -46,6 +50,9 @@ function App() {
       <button><a href="/quote-generator"> <h4>Quote Generator</h4> </a></button>
       <button><a href="/redux-example"> <h4>Redux examp</h4> </a></button>
       <button><a href="/todo2"> <h4>Todo2</h4> </a></button>
+      <button><a href="/free-ex1"> <h4>FreeEx1</h4> </a></button>
+      <button><a href="/free-ex2"> <h4>FreeEx2</h4> </a></button>
+      <button><a href="/free-ex3"> <h4>FreeEx3</h4> </a></button>
 
       <Router>
           <Route path='/' exact component={Home}/>
@@ -58,12 +65,15 @@ function App() {
           <Route path='/tictactoe' component={TicTacToe} />
           <Route path='/quiz' component={Quiz} />
           <Route path='/carousel' component={Carousel} />
-          <Route path='/joke-generator' component={QuoteGenerator} />
+          <Route path='/joke-generator' component={JokeGenerator} />
           <Route path='/weight-converter' component={WeightConverter} />
           <Route path='/kahoot-quiz' component={KahootQuiz} />
           <Route path='/quote-generator' component={OfficialQuoteGenerator} />
           <Route path='/redux-example' component={ReduxExper} />
           <Route path='/todo2' component={TodoList2} />
+          <Route path='/free-ex1' component={FreeEx1} />
+          <Route path='/free-ex2' component={FreeEx2} />
+          <Route path='/free-ex3' component={FreeEx3} />
       </Router>
     </div>
     </Provider>
