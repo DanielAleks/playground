@@ -1,49 +1,53 @@
 import React, { useState } from 'react'
+import TodoList from './TodoList'
 
 function Accordion() {
-  const [inputTodo, setInputTodo] = useState('')
-  const [todo, setTodo] = useState([])
   const [inputList, setInputList] = useState('')
   const [list, setList] = useState([])
-  const [isActive, setIsActive] = useState('title')
+  const [listOpenById, setListOpenById] = useState<number>(null)
+  const [editMode, setEditMode] = useState(false)
 
-  const addTodo = (e) => {
-    setTodo(prev => [...prev, { input: inputTodo, id: Math.floor(Math.random() * 10000) }])
-  }
-  const addList = (e) => {
+
+  const addList = () => {
     setList(prev => [...prev, { input: inputList, id: Math.floor(Math.random() * 10000) }])
   }
 
-  const remove = (index) => {
-    // setTodo(todo.filter(todo) => todo !== todo.id) 
-      setTodo(todo.filter(item => item !== item.id))
-      // this.setState({ items: items });
-    }
+  const removeList = (itemList) => {
+    setList(prev => prev.filter((itemListDel) =>
+      itemList === itemListDel ? null : itemListDel
+    ))
+  }
+
+
 
   return (
     <div>
-      <div style={styles.button} onClick={addTodo}>Add Todo</div>
+      <div onClick={() => setEditMode(prev => !prev)}>Edit mode</div>
       <div style={styles.button} onClick={addList}>Add List</div>
-
-      <input style={styles.input} type="text" placeholder='My Todo...' value={inputTodo} onChange={(e) => setInputTodo(e.target.value)} />
       <input style={styles.input} type="text" placeholder='My List...' value={inputList} onChange={(e) => setInputList(e.target.value)} />
-      {todo.map((item, index) =>
-        <li style={{}} key={index}>{item.input}</li>
-      )}
-      {list.map((item, index) =>
-        <div style={styles.buttonContainer}>
 
-          <li style={{ listStyleType: 'none', marginLeft: 10 }} key={index}><b>{item.input}</b></li>
-          <div style={{marginLeft: 20}} onClick={() => remove(index)}>x</div>
-        </div>
+
+      {list.map((itemList) =>
+        <TodoList
+          itemList={itemList}
+          setInputList={setInputList}
+          styles={styles}
+          listOpenById={listOpenById}
+          editMode={editMode}
+          setListOpenById={setListOpenById}
+          removeList={removeList}
+
+        // setListOfTodos={setListOfTodos}
+        // listOfTodos={listOfTodos} 
+        />
       )}
     </div>
   )
 }
-const styles = ({
+
+export const styles = ({
   buttonContainer: {
     marginTop: 30,
-    display: 'flex'
   },
   input: {
     background: 'none',
